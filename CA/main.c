@@ -227,5 +227,93 @@ int main()
     free(newstr);
 
     /////////////////////////////////////////////////////////////////////
+    /*
+
+     * C Program to Sort Word in String
+
+     */
+
+
+
+        int count3 = 0, c3 = 0, i3, j3 = 0, k3, l3, space3 = 0;
+
+        char str3[100], p3[50][100], str1[20], ptr1[50][100], cmp[50];
+
+
+
+        printf("\n\n\n\nEnter the string to sort it\n");
+
+        scanf(" %[^\n]s", str3);
+
+        for (i3 = 0;i3 < strlen(str3);i3++)
+
+        {
+
+            if ((str3[i3] == ' ')||(str3[i3] == ', ')||(str3[i3] == '.'))
+
+            {
+
+                space3++;
+
+            }
+
+        }
+
+        for (i3 = 0, j3 = 0, k3 = 0;j3 < strlen(str3);j3++)
+
+        {
+
+            if ((str3[j3] == ' ')||(str3[j3] == 44)||(str3[j3] == 46))
+
+            {
+
+                p3[i3][k3] = '\0';
+
+                i3++;
+
+                k3 = 0;
+
+            }
+
+            else
+
+                 p3[i3][k3++] = str3[j3];
+
+        }
+
+        for (i3 = 0;i3 < space3;i3++)    //loop for sorting
+
+        {
+
+            for (j3 = i3 + 1;j3 <= space3;j3++)
+
+            {
+
+                if ((strcmp(p3[i3], p3[j3]) > 0))
+
+                {
+
+                    strcpy(cmp, p3[i3]);
+
+                    strcpy(p3[i3], p3[j3]);
+
+                    strcpy(p3[j3], cmp);
+
+                }
+
+            }
+
+        }
+
+        printf("\n\nAfter sorting string is \n");
+
+        for (i3 = 0;i3 <= space3;i3++)
+
+        {
+
+            printf("%s ", p3[i3]);
+
+        }
+
    return 0;
 }
